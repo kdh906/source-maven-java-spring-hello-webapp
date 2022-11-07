@@ -2,8 +2,9 @@ pipeline {
   agent any
 
   triggers {
-     pollSCM('* * * * *')
-  }
+      githubPush() 
+ 	}
+
 
   stages {
     stage('Checkout') {
@@ -23,7 +24,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://43.201.39.77:8080')], contextPath: null, war: 'target/hello-world.war'
+        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://3.35.227.221:8080')], contextPath: null, war: 'target/hello-world.war'
       }
     }
   }
