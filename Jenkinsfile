@@ -27,5 +27,5 @@ pipeline {
         deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://3.34.41.249:8080')], contextPath: null, war: 'target/hello-world.war'
       }
     }
-  
+  }
 }
